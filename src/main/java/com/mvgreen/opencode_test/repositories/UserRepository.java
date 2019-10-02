@@ -7,6 +7,4 @@ import java.util.List;
 
 public interface UserRepository extends JpaRepository<UserData, Long> {
     UserData findByUsername(String username);
-
-    //List<UserData> findAll();
 }

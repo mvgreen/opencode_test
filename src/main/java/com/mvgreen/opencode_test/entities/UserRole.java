@@ -3,7 +3,7 @@ package com.mvgreen.opencode_test.entities;
 import javax.persistence.*;
 
 @Entity
-public class UserAuthority {
+public class UserRole {
 
     @Id
     private String name;

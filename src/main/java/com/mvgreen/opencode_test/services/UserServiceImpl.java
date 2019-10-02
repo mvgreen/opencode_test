@@ -1,6 +1,6 @@
 package com.mvgreen.opencode_test.services;
 
-import com.mvgreen.opencode_test.entities.UserAuthority;
+import com.mvgreen.opencode_test.entities.UserRole;
 import com.mvgreen.opencode_test.entities.UserData;
 import com.mvgreen.opencode_test.repositories.RoleRepository;
 import com.mvgreen.opencode_test.repositories.UserRepository;
@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void save(UserData user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        HashSet<UserAuthority> roles = new HashSet<>();
+        HashSet<UserRole> roles = new HashSet<>();
         roles.add(roleRepository.findByName("User"));
         user.setRoles(roles);
         userRepository.save(user);
@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void grantRole(String username, String grantedRole) {
         UserData user;
-        UserAuthority role;
+        UserRole role;
         user = userRepository.findByUsername(username);
         if (user == null)
             throw new  DataRetrievalFailureException("No such user: " + username);

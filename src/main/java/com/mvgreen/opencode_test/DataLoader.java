@@ -1,7 +1,7 @@
 package com.mvgreen.opencode_test;
 
 import com.mvgreen.opencode_test.entities.UserData;
-import com.mvgreen.opencode_test.entities.UserAuthority;
+import com.mvgreen.opencode_test.entities.UserRole;
 import com.mvgreen.opencode_test.repositories.RoleRepository;
 import com.mvgreen.opencode_test.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,11 +23,11 @@ public class DataLoader implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) {
-        UserAuthority commonUser = new UserAuthority();
+        UserRole commonUser = new UserRole();
         commonUser.setName("User");
         roleRepository.save(commonUser);
 
-        UserAuthority admin = new UserAuthority();
+        UserRole admin = new UserRole();
         admin.setName("Admin");
         roleRepository.save(admin);
 

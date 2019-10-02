@@ -1,7 +1,7 @@
 package com.mvgreen.opencode_test.services;
 
 import com.mvgreen.opencode_test.entities.UserData;
-import com.mvgreen.opencode_test.entities.UserAuthority;
+import com.mvgreen.opencode_test.entities.UserRole;
 import com.mvgreen.opencode_test.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -30,7 +30,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             throw new UsernameNotFoundException(username);
 
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-        for (UserAuthority role : userData.getRoles()){
+        for (UserRole role : userData.getRoles()){
             grantedAuthorities.add(new SimpleGrantedAuthority(role.getName()));
         }
 

@@ -28,7 +28,7 @@ public class UserData {
     private Float score = (float) 0;
 
     @ManyToMany
-    private Set<UserAuthority> roles;
+    private Set<UserRole> roles;
 
     public Long getId() {
         return id;
@@ -78,11 +78,11 @@ public class UserData {
         this.amountOfGames = amountOfGames;
     }
 
-    public Set<UserAuthority> getRoles() {
+    public Set<UserRole> getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<UserAuthority> roles) {
+    public void setRoles(Set<UserRole> roles) {
         this.roles = roles;
     }
 
